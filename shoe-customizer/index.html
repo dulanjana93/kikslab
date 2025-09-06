@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3D Model </title>
+    <meta name="description" content=" color customizer app with Three.js." />
+    <meta name="keywords" content="three.js, color customizer, app, tutorial, 3d model, blender, javascript" />
+    <meta name="author" content="Kyle Wetton for Codrops" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    
+    <!-- Use a stable version of html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
+    <style>
+        /* Your existing CSS here */
+    </style>
+</head>
+
+<body>
+    <!-- Loading overlay -->
+    <div class="loading" id="js-loader">
+        <div class="loader"></div>
+    </div>
+
+   
+    
+
+    <h2>Customize Shoes in Your Own Style</h2>
+
+    <!-- Drag notice -->
+    <span class="drag-notice" id="js-drag-notice">Drag to rotate 360&#176;</span>
+
+    <!-- Model options -->
+    <div class="options">
+        <div class="option --is-active" data-option="Front">
+            <img src="./img/front.bmp" alt="" />
+        </div>
+        <div class="option" data-option="Back">
+            <img src="./img/back.bmp" alt="" />
+        </div>
+        <div class="option" data-option="Side">
+            <img src="./img/side.bmp" alt="" />
+        </div>
+        <div class="option" data-option="Cube004">
+            <img src="./img/main.bmp" alt="" />
+        </div>
+        <div class="option" data-option="back">
+            <img src="./img/back-top.bmp" alt="" />
+        </div>
+    </div>
+
+    <!-- Custom file upload button -->
+    <div class="upload-btn-wrapper">
+        <button>Upload Image</button>
+        <input type="file" id="imageUpload" accept="image/png" />
+    </div>
+
+    <div class="send-btn-wrapper">
+        <button id="sendButton">Request Quatation</button>
+    </div>
+
+    <!-- 3D canvas -->
+    <canvas id="c"></canvas>
+
+    <!-- Controls -->
+    <div class="controls">
+       
+        <div class="info">
+            
+            <div class="info__message">
+                <div class="logo">
+                    <img style="height: 100px; float: right;" src="./kicklogo.png" alt="" >
+                </div>
+                
+                <p><strong>&nbsp;Grab&nbsp;</strong> to rotate shoe. <strong>&nbsp;Scroll&nbsp;</strong> to zoom. <strong>&nbsp;Drag&nbsp;</strong> swatches to view more.</p>
+            </div>
+        </div>
+        <div id="js-tray" class="tray">
+            <div id="js-tray-slide" class="tray__slide"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('sendButton').addEventListener('click', function() {
+            // Capture the screenshot of the entire body
+            html2canvas(document.body).then(canvas => {
+                // Convert the canvas to a data URL (PNG format)
+                const screenshotDataUrl = canvas.toDataURL('image/png');
+
+                // Create a link to WhatsApp with a predefined message
+                const phoneNumber = '+94763800354';
+                const message = 'Check out this screenshot!';
+                const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+
+                // Open WhatsApp Web with the message
+                window.open(url, '_blank');
+
+                // Optional: Show the screenshot (for user confirmation)
+                const img = new Image();
+                img.src = screenshotDataUrl;
+                document.body.appendChild(img);
+            });
+        });
+    </script>
+
+    <!-- Three.js scripts -->
+    <script src="https://unpkg.com/three@0.127.0/build/three.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r92/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>
