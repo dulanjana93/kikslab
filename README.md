@@ -6,13 +6,14 @@ A full-stack MERN sneaker customization and e-commerce platform.
 
 ## Demo
 
-[Here](https://youtu.be/ocie1_RSzZQ) 
+[Watch Demo](https://youtu.be/ocie1_RSzZQ) 
 *Watch a quick demo of KiksLab in action!*
 
 ---
+## Live Site
 
-**Live Site:** [Here](https://kikslab-frontend.vercel.app)
-Try the full KiksLab sneaker customization and shopping experience online!*
+[Go to Site](https://kikslab-frontend.vercel.app)
+*Try the full KiksLab sneaker customization and shopping experience online!*
 
 ---
 
