@@ -6,7 +6,7 @@ A full-stack MERN sneaker customization and e-commerce platform.
 
 ## 🚀 Demo
 
-[![Watch Demo](https://youtu.be/ocie1_RSzZQ)  
+(https://youtu.be/ocie1_RSzZQ) 
 *Watch a quick demo of KiksLab in action!*
 
 ---
